@@ -37,8 +37,8 @@ header {
     flex-grow: 1;
     overflow: hidden;
 }
-  
-  #board {
+
+#board {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
@@ -54,7 +54,6 @@ header {
     font-weight: bold;
     color: gainsboro;
     text-transform: uppercase;
-  
     display: flex;
     justify-content: center;
     align-items: center;
