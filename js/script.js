@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     createSquares();
+    window.alert("Weclome to Conor's Clone of Wordle")
 
     let guessedWords = [[]]
     let availableSpace = 1;
+    let word = "Conor";
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
@@ -10,12 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
         keys[i].onclick = ({ target }) => {
             const letter = target.getAttribute("data-key");
             updateGuessedWords(letter)
+
+            if ( letter === "enter") {
+                handleSubmit()
+                return;
+            }
         };
     }
 
     function getCurrentWordArr() {
-        const numberOfGuessedWords = guessedWords.length
-        return guessedWords[numberOfGuessedWords - 1]
+        const numberOfGuessedWords = guessedWords.length;
+        return guessedWords[numberOfGuessedWords - 1];
     }
 
     function updateGuessedWords(letter) {
@@ -24,13 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if ( CurrentWordArr && CurrentWordArr.length < 5 ) {
             CurrentWordArr.push(letter);
 
-            const availableSpaceEl = document.getElementById(String(letter));
-            availableSpace = availableSpace + 1
+            const availableSpaceEl = document.getElementById(String(availableSpace));
 
-            availableSpaceEl.textConent = letter;
+            availableSpace = availableSpace + 1
+            availableSpaceEl.textContent = letter;
         }
     }
 
+    function handleSubmit() {
+        const currentWordArr = getCurrentWordArr()
+        if (currentWordArr.length !==5 ) {
+            window.alert("word must be 5 letters")
+        }
+    }
 
     function createSquares() {
         const gameBoard = document.getElementById("board")
