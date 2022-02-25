@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     createSquares();
-    //window.alert("Weclome to Conor's Clone of Wordle")
+    window.alert("Weclome to Conor's Clone of Wordle\n Try and guess the 5 letter word\n\n The delete key doesnt work but our dedicated software enginners are hard at work")
 
     let guessedWords = [[]]
     let availableSpace = 1;
