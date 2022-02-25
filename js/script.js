@@ -9,18 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
-    for (let i = 0; i < keys.length; i++) {
-        keys[i].onclick = ({ target }) => {
-            const letter = target.getAttribute("data-key");
-            updateGuessedWords(letter)
-
-            if ( letter === "enter") {
-                handleSubmit()
-                return;
-            }
-
-        };
-    }
 
     function getCurrentWordArr() {
         const numberOfGuessedWords = guessedWords.length;
@@ -83,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if ( currentWord === word) {
             $( function() {
                 $( "#overlay" ).fadeIn();
+                $(".firework").fadeIn();
               }, 2000 );
             window.alert("Congradulations you won a Conor")
         }
@@ -108,8 +97,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function handleDeleteLetter() {
+        const currentWordArr = getCurrentWordArr();
+        const removedLetter = currentWordArr.pop();
+    
+        guessedWords[guessedWords.length - 1] = currentWordArr;
+    
+        const lastLetterEl = document.getElementById(String(availableSpace - 1));
+    
+        lastLetterEl.textContent = "";
+        availableSpace = availableSpace - 1;
+      }
+
+
+    for (let i = 0; i < keys.length; i++) {
+        keys[i].onclick = ({ target }) => {
+            const letter = target.getAttribute("data-key");
+            updateGuessedWords(letter)
+
+            if ( letter === "enter") {
+                handleSubmit()
+                return;
+            }
+
+            if (letter === "del") {
+                handleDeleteLetter();
+                return;
+            }
+        };
+    }
+
     $( function() {
-        $( "#overlay" ).hide();
+        $("#overlay" ).hide();
+        $(".firework").hide();
       } );
 
+
+
+      new TimelineMax({
+        repeat: -1
+      })
+      .set('#Pre-approval-letter path',{svgOrigin: "20px 20px"})
+      .fromTo('#Pre-approval-letter path', 3, {
+        scale:0
+      },{
+        scale:1,
+        opacity:0,
+        ease: Power2.easeOut
+      })
 });
