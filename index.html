@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>Wordle Clone</title>
     <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
     <div id="container">
         <div id="game">
             <header>
                 <div class="title">
-                <h3>
-                   Conor's Wordle
-                </h3>
-                <img id="imgcnr" src="cnr.png" alt="">
+                    <h3>
+                        Conor's Wordle
+                    </h3>
                 </div>
+                <img id="overlay" src="cnr.png" alt="">
                 <div id="board-container">
                     <div id="board">
 
@@ -37,8 +42,8 @@
                         <button data-key="i">i</button>
                         <button data-key="o">o</button>
                         <button data-key="p">p</button>
-                      </div>
-                      <div class="keyboard-row">
+                    </div>
+                    <div class="keyboard-row">
                         <div class="spacer-half"></div>
                         <button data-key="a">a</button>
                         <button data-key="s">s</button>
@@ -50,8 +55,8 @@
                         <button data-key="k">k</button>
                         <button data-key="l">l</button>
                         <div class="spacer-half"></div>
-                      </div>
-                      <div class="keyboard-row">
+                    </div>
+                    <div class="keyboard-row">
                         <button data-key="enter" class="wide-button">Enter</button>
                         <button data-key="z">z</button>
                         <button data-key="x">x</button>
@@ -61,10 +66,11 @@
                         <button data-key="n">n</button>
                         <button data-key="m">m</button>
                         <button data-key="del" class="wide-button">Del</button>
-                      </div>
+                    </div>
                 </div>
             </header>
         </div>
     </div>
 </body>
+
 </html>

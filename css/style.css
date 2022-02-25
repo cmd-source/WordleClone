@@ -24,11 +24,12 @@ html, body {
     flex-direction: column;
 }
 
-#imgcnr {
-    margin: 3px;
+#overlay {
+    margin-right: 50px;
+    margin-left: 50px;
     padding: 3px;
-    height: 45px;
-    width: 45px;
+    height: 400px;
+    width: 400px;
 }
 
 header {
